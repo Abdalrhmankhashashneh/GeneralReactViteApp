@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import LogoAtom from "../atoms/LogoAtom";
 import NavItem from "../molecules/NavItem";
 import { Home, Info, Menu, Phone, X } from "lucide-react";
-import ThemeToggleAtom from "../atoms/ThemeToggleAtom";
 import HeaderAtom from "../atoms/HeaderAtom";
 import IconAtom from "../atoms/IconAtom";
 import ButtonAtom from "../atoms/ButtonAtom";
 import NavAtome from "../atoms/NavAtome";
 import FlexAtom from "../atoms/FlexAtom";
-import LangToggleAtom from "../atoms/LangToggleAtom";
 import { useTranslation } from "react-i18next";
+import LoginRegsterButtons from "../molecules/LoginRegsterButtons";
+import ThemeToggle from "../molecules/ThemeToggle";
+import LangToggle from "../molecules/LangToggle";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,8 +25,9 @@ const Navbar = () => {
         <NavItem to="/contact" label={t('Contact')} icon={Phone} />
       </NavAtome>
       <FlexAtom className="gap-3.5 items-center">
-        <ThemeToggleAtom />
-        <LangToggleAtom  />
+        <ThemeToggle />
+        <LangToggle  />
+        <LoginRegsterButtons />
         <ButtonAtom
           className="lg:hidden max-sm:block  "
           variant="primary"

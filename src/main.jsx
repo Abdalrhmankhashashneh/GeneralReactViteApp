@@ -5,14 +5,15 @@ import { ThemeProvider } from "styled-components";
 import { store } from "./redux/store.js";
 import { Provider, useSelector } from "react-redux";
 import RoutesComponent from "./routes/RoutesComponent.jsx";
-import './i18n.js';
+import "./i18n.js";
+import LanguageTransitionWrapper from "./utils/LanguageTransitionWrapper.jsx";
 
 const RootWithTheme = () => {
   const theme = useSelector((state) => state.theme.current);
 
   return (
     <ThemeProvider theme={theme}>
-        <RoutesComponent />
+      <RoutesComponent />
     </ThemeProvider>
   );
 };
@@ -20,7 +21,9 @@ const RootWithTheme = () => {
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-      <RootWithTheme />
+      <LanguageTransitionWrapper>
+        <RootWithTheme />
+      </LanguageTransitionWrapper>
     </Provider>
   </StrictMode>
 );

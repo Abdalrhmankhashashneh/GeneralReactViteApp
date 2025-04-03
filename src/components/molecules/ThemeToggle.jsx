@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleTheme } from "../../redux/slices/themeSlice";
-import OnHoverWile from "./animateAtoms/onHoverWile";
 
-const ThemeToggleAtom = () => {
+import ButtonAtom from "../atoms/ButtonAtom";
+import { toggleTheme } from "../../redux/slices/themeSlice";
+import { OnHoverWile } from "../../utils/motion-utils";
+
+const ThemeToggle = () => {
   const theme = useSelector((state) => state.theme.mode);
   const dispatch = useDispatch();
 
@@ -14,17 +16,11 @@ const ThemeToggleAtom = () => {
 
   return (
     <OnHoverWile>
-
-    <button
-      onClick={() => dispatch(toggleTheme())}
-      className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:scale-110 transition cursor-pointer"
-      aria-label="Toggle Dark Mode"
-    >
-      {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-    </button>
+      <ButtonAtom onClick={() => dispatch(toggleTheme())} variant="secondary">
+        {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+      </ButtonAtom>
     </OnHoverWile>
-
   );
 };
 
-export default ThemeToggleAtom;
+export default ThemeToggle;

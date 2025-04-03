@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import OnHoverWile from "./animateAtoms/onHoverWile";
+import { OnHoverWile } from "../../utils/motion-utils";
 const StyledButton = styled.button`
   border-radius: ${({ theme }) => theme.radius.md};
   font-weight: 600;

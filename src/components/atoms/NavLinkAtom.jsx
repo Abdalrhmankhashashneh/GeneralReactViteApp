@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import OnHoverWile from "./animateAtoms/onHoverWile";
+import { OnHoverPop, OnHoverWiggle, OnHoverWile } from "../../utils/motion-utils";
 
 const StyledNavLink = styled(Link)`
   padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
@@ -29,7 +29,7 @@ const StyledNavLink = styled(Link)`
 
 const NavLinkAtom = ({ to, children, variant = "primary", active = false }) => {
   return (
-    <OnHoverWile>
+    <OnHoverPop>
       <StyledNavLink
         className="rounded-3xl"
         to={to}
@@ -38,7 +38,7 @@ const NavLinkAtom = ({ to, children, variant = "primary", active = false }) => {
       >
         {children}
       </StyledNavLink>
-    </OnHoverWile>
+    </OnHoverPop>
   );
 };
 
